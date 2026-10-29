@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 
 const links = [
   { label: "Our story", href: "#about" },
@@ -29,7 +30,12 @@ export function SiteHeader() {
             aria-label="Magic Vision Photography home"
           >
             <span className="brand-mark" aria-hidden="true">
-              <img src="/images/magic-vision-logo.jpg" alt="" />
+              <Image
+                src="/images/magic-vision-logo.jpg"
+                alt=""
+                width={35}
+                height={35}
+              />
             </span>
 
             <span className="brand-copy">
