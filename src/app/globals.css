@@ -970,7 +970,7 @@ button {
 
 /* Portfolio and lightbox */
 .portfolio-section {
-  padding-block: 104px 112px;
+  padding-block: 96px 104px;
 }
 .portfolio-overline {
   display: flex;
@@ -986,8 +986,8 @@ button {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  gap: 24px;
-  margin-top: 31px;
+  gap: 32px;
+  margin-top: 28px;
 }
 .portfolio-heading .editorial-title {
   font-style: italic;
@@ -1000,8 +1000,9 @@ button {
 }
 .gallery-filters {
   display: flex;
-  gap: 6px;
-  margin-block: 30px 20px;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-block: 28px 22px;
   overflow-x: auto;
   padding-bottom: 4px;
 }
@@ -1022,11 +1023,15 @@ button {
   color: var(--paper);
   background: var(--espresso);
 }
+.gallery-filter:focus-visible, .gallery-image-button:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   align-items: start;
-  gap: 38px 17px;
+  gap: 30px 20px;
 }
 .gallery-load-more {
   display: grid;
@@ -1035,33 +1040,11 @@ button {
   margin-top: 40px;
 }
 .gallery-card {
-  grid-column: span 4;
-  padding: 8px;
+  min-width: 0;
+  grid-column: auto;
+  padding: 7px;
   border: 1px solid var(--beige);
-  background: white;
-}
-.gallery-card-1 {
-  grid-column: span 5;
-}
-.gallery-card-2 {
-  grid-column: span 4;
-  margin-top: 73px;
-}
-.gallery-card-3 {
-  grid-column: span 3;
-  margin-top: 19px;
-}
-.gallery-card-4 {
-  grid-column: 2 / span 4;
-  margin-top: 8px;
-}
-.gallery-card-5 {
-  grid-column: span 4;
-  margin-top: 78px;
-}
-.gallery-card-6 {
-  grid-column: span 3;
-  margin-top: 17px;
+  background: var(--paper-raised);
 }
 .gallery-image-button {
   position: relative;
@@ -1073,9 +1056,6 @@ button {
   overflow: hidden;
   background: var(--paper-soft);
   cursor: zoom-in;
-}
-.gallery-card-3 .gallery-image-button, .gallery-card-6 .gallery-image-button {
-  aspect-ratio: 1/1.16;
 }
 .gallery-image {
   object-fit: cover;
@@ -1105,7 +1085,8 @@ button {
   display: flex;
   justify-content: space-between;
   gap: 10px;
-  padding: 11px 2px 4px;
+  align-items: flex-start;
+  padding: 12px 3px 5px;
 }
 .gallery-caption .eyebrow {
   font-size: 10px;
@@ -2006,7 +1987,7 @@ button {
   }
   .gallery-grid {
     grid-template-columns: 1fr 1fr;
-    gap: 12px 8px;
+    gap: 18px 12px;
   }
   .gallery-card, .gallery-card-1, .gallery-card-2, .gallery-card-3, .gallery-card-4, .gallery-card-5, .gallery-card-6 {
     grid-column: span 1;
@@ -2016,7 +1997,7 @@ button {
   .gallery-card:nth-child(odd) {
     margin-top: 13px;
   }
-  .gallery-image-button, .gallery-card-3 .gallery-image-button, .gallery-card-6 .gallery-image-button {
+  .gallery-image-button {
     aspect-ratio: 4/5;
   }
   .gallery-caption {
