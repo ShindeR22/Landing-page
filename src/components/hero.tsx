@@ -18,8 +18,18 @@ export function Hero() {
   }
 
   return (
-    <section className="hero" id="top" aria-roledescription="carousel">
-      <Image key={slide.image} className="hero-image" src={slide.image} alt={slide.alt} fill priority unoptimized sizes="100vw" />
+    <section className="hero" aria-roledescription="carousel">
+      <Image
+        key={slide.image}
+        className="hero-image"
+        src={slide.image}
+        alt={slide.alt}
+        fill
+        priority
+        unoptimized
+        sizes="100vw"
+        style={{ objectPosition: slide.position || "center" }}
+      />
       <div className="hero-shade" />
       <div className="hero-content">
         <div className="hero-kicker"><span /> Boutique studio · Pune & Pimpri-Chinchwad</div>

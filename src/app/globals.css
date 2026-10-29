@@ -11,8 +11,10 @@
   --ink-soft: #4e4540;
   --taupe: #8a786b;
   --gold: #c9a875;
+  --gold-glow: #e8ca95;
   --rule: rgba(184, 161, 138, .35);
   --serif: "Playfair Display", Georgia, serif;
+  --serif-display: "Cormorant Garamond", "Playfair Display", Georgia, serif;
   --sans: "Plus Jakarta Sans", Arial, sans-serif;
 }
 
@@ -29,7 +31,7 @@
 }
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 80px;
+  scroll-padding-top: 54px;
 }
 body {
   margin: 0;
@@ -65,87 +67,132 @@ button {
 .announcement-bar {
   position: relative;
   z-index: 40;
-  min-height: 26px;
+  min-height: 20px;
   display: grid;
   place-items: center;
-  padding: 6px 16px;
+  padding: 2.5px 16px;
   color: var(--paper);
   background: var(--espresso);
   text-align: center;
   text-transform: uppercase;
-  font-size: 10px;
-  letter-spacing: .15em;
+  font-size: 8.5px;
+  font-weight: 500;
+  letter-spacing: .18em;
 }
 .site-header {
-  position: absolute;
-  z-index: 30;
-  inset: 26px 0 auto;
-  color: var(--paper);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: rgba(252, 249, 244, .94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  color: var(--espresso);
+  border-bottom: 1px solid var(--rule);
+  box-shadow: 0 2px 14px rgba(48, 37, 31, .04);
 }
 .header-inner {
   width: min(calc(100% - 64px), 1440px);
-  min-height: 76px;
+  min-height: 48px;
   margin-inline: auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid rgba(252,249,244,.32);
 }
 .brand-lockup {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 9px;
 }
 .brand-mark {
-  width: 35px;
-  height: 35px;
+  width: 26px;
+  height: 26px;
   display: inline-grid;
   flex: 0 0 auto;
   place-items: center;
   border: 1px solid var(--gold);
   color: var(--gold);
-  font: italic 15px var(--serif);
+  font: italic 13px var(--serif);
   letter-spacing: -.08em;
+  overflow: hidden;
 }
 .brand-copy {
   display: flex;
   flex-direction: column;
-  gap: 3px;
+  gap: 0;
 }
 .brand-name {
-  font: 500 16px var(--serif);
+  font: 500 14px/1.15 var(--serif);
   letter-spacing: .035em;
+  color: var(--espresso);
 }
 .brand-subtitle {
   text-transform: uppercase;
-  letter-spacing: .19em;
-  font-size: 9px;
-  opacity: .74;
+  letter-spacing: .2em;
+  font-size: 7.5px;
+  color: var(--taupe);
+  opacity: .9;
 }
 .desktop-nav {
   display: flex;
   align-items: center;
-  gap: clamp(22px, 3vw, 48px);
-}
-.desktop-nav a, .header-cta {
-  text-transform: uppercase;
-  letter-spacing: .14em;
-  font-size: 10px;
+  gap: clamp(18px, 2.2vw, 36px);
 }
 .desktop-nav a {
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: .15em;
+  font-size: 9px;
+  font-weight: 500;
+  color: var(--espresso);
   opacity: .82;
-  transition: opacity .2s ease;
+  padding: 2px 0;
+  transition: opacity .25s ease, color .25s ease;
+}
+.desktop-nav a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 1px;
+  background: var(--gold);
+  transition: width .25s ease, left .25s ease;
 }
 .desktop-nav a:hover {
   opacity: 1;
+  color: var(--espresso);
+}
+.desktop-nav a:hover::after {
+  width: 100%;
+  left: 0;
 }
 .header-cta {
-  border: 1px solid rgba(252,249,244,.62);
-  padding: 12px 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--espresso);
+  color: var(--espresso);
+  padding: 5px 13px;
+  text-transform: uppercase;
+  letter-spacing: .13em;
+  font-size: 9px;
+  font-weight: 600;
+  background: transparent;
+  transition: background-color .22s ease, color .22s ease, box-shadow .22s ease;
+}
+.header-cta:hover {
+  background-color: var(--espresso);
+  color: var(--paper);
+  box-shadow: 0 4px 12px rgba(48, 37, 31, .15);
 }
 .header-cta span {
-  margin-left: 13px;
   color: var(--gold);
+  display: inline-block;
+  font-size: 10px;
+  transition: transform .22s ease;
+}
+.header-cta:hover span {
+  transform: translate(2px, -2px);
 }
 .menu-toggle, .mobile-nav {
   display: none;
@@ -153,18 +200,18 @@ button {
 
 /* Hero carousel */
 .hero {
-  min-height: 760px;
-  height: min(880px, 100svh);
+  height: calc(100svh - 68px);
+  min-height: calc(100svh - 68px);
   position: relative;
   display: flex;
   align-items: flex-end;
   overflow: hidden;
   color: var(--paper);
-  background: #51443b;
+  background: #2b211a;
 }
 .hero-image {
-  object-fit: contain;
-  object-position: right center;
+  object-fit: cover;
+  object-position: center;
   animation: hero-reveal .8s ease both;
 }
 @keyframes hero-reveal {
@@ -186,62 +233,87 @@ button {
   position: relative;
   z-index: 1;
   width: min(calc(100% - 64px), 1280px);
-  margin: 0 auto 156px;
+  margin: 0 auto 120px;
 }
 .hero-kicker {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 11px;
-  color: var(--gold);
+  gap: 12px;
+  color: var(--gold-glow);
   text-transform: uppercase;
-  font-size: 10px;
-  letter-spacing: .18em;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: .24em;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, .5);
 }
 .hero-kicker span {
-  width: 27px;
-  height: 1px;
-  background: currentColor;
+  width: 30px;
+  height: 1.5px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+  box-shadow: 0 0 10px rgba(201, 168, 117, .6);
 }
 .hero h1 {
-  max-width: 790px;
-  margin: 23px 0 0;
-  font: 400 clamp(54px, 7vw, 94px)/1.02 var(--serif);
-  letter-spacing: -.05em;
+  max-width: 860px;
+  margin: 18px 0 0;
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(48px, 6.4vw, 88px);
+  line-height: 1.08;
+  letter-spacing: -0.015em;
+  color: #fffdfa;
+  text-shadow: 0 4px 30px rgba(18, 10, 6, .7), 0 1px 4px rgba(0, 0, 0, .5);
 }
 .hero h1 em {
+  display: inline-block;
+  font-family: var(--serif-display);
+  font-style: italic;
   font-weight: 400;
+  letter-spacing: 0.01em;
+  color: #eed6aa;
+  background: linear-gradient(135deg, #fffaf0 0%, #edd3a4 35%, #c9a875 75%, #dfbe87 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 20px rgba(201, 168, 117, 0.45));
+  padding-right: 0.06em;
 }
 .hero-intro {
-  max-width: 480px;
-  margin: 20px 0 0;
-  color: rgba(252,249,244,.82);
-  font-size: 15px;
+  max-width: 520px;
+  margin: 22px 0 0;
+  color: rgba(252, 249, 244, .92);
+  font-size: clamp(15px, 1.25vw, 17px);
   font-weight: 300;
-  line-height: 1.85;
+  line-height: 1.8;
+  letter-spacing: .01em;
+  text-shadow: 0 2px 14px rgba(18, 10, 6, .6);
 }
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 9px;
-  margin-top: 28px;
+  align-items: center;
+  gap: 12px;
+  margin-top: 32px;
 }
 .button {
   min-height: 47px;
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  gap: 22px;
-  padding: 0 19px;
+  gap: 20px;
+  padding: 0 20px;
   border: 1px solid transparent;
   text-transform: uppercase;
-  letter-spacing: .13em;
+  letter-spacing: .14em;
   font-size: 10px;
   font-weight: 600;
-  transition: color .22s ease, background .22s ease, border-color .22s ease;
+  transition: color .22s ease, background .22s ease, border-color .22s ease, transform .22s ease, box-shadow .22s ease;
   cursor: pointer;
 }
 .button span {
   font-size: 16px;
+  transition: transform .22s ease;
+}
+.button:hover span {
+  transform: translateX(3px);
 }
 .button-primary {
   color: var(--paper);
@@ -254,23 +326,37 @@ button {
   border-color: var(--gold);
 }
 .hero .button-primary {
-  color: var(--espresso);
-  background: var(--gold);
-  border-color: var(--gold);
+  min-height: 48px;
+  padding: 0 24px;
+  color: #221711;
+  background: linear-gradient(135deg, #e4c693 0%, #c9a875 100%);
+  border-color: rgba(255, 235, 195, 0.5);
+  font-weight: 700;
+  letter-spacing: .15em;
+  box-shadow: 0 6px 24px rgba(201, 168, 117, 0.35);
 }
 .hero .button-primary:hover {
-  color: var(--paper);
-  background: transparent;
-  border-color: var(--paper);
+  color: #1a100a;
+  background: linear-gradient(135deg, #edd2a1 0%, #d6b47e 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(201, 168, 117, 0.5);
 }
-.button-light-outline {
-  color: var(--paper);
-  border-color: rgba(252,249,244,.7);
-  background: rgba(26,17,11,.12);
+.hero .button-light-outline {
+  min-height: 48px;
+  padding: 0 22px;
+  color: #fffdfa;
+  border: 1px solid rgba(252, 249, 244, .45);
+  background: rgba(30, 20, 15, .3);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  font-weight: 600;
+  letter-spacing: .14em;
 }
-.button-light-outline:hover {
-  color: var(--espresso);
-  background: var(--paper);
+.hero .button-light-outline:hover {
+  color: #fffdfa;
+  background: rgba(252, 249, 244, .18);
+  border-color: rgba(252, 249, 244, .9);
+  transform: translateY(-2px);
 }
 .button-secondary {
   color: var(--espresso);
@@ -285,20 +371,24 @@ button {
   z-index: 1;
   right: max(32px, calc((100vw - 1280px)/2));
   bottom: 114px;
-  width: 245px;
-  padding-left: 15px;
-  border-left: 1px solid var(--gold);
+  width: 260px;
+  padding-left: 16px;
+  border-left: 1.5px solid var(--gold);
 }
 .hero-slide-caption > span {
   display: block;
-  color: var(--gold);
+  color: var(--gold-glow);
   text-transform: uppercase;
-  font-size: 9px;
-  letter-spacing: .16em;
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: .18em;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, .4);
 }
 .hero-slide-caption p {
-  margin: 8px 0 0;
-  font: italic 16px/1.5 var(--serif);
+  margin: 7px 0 0;
+  font: italic 400 16.5px/1.45 var(--serif-display);
+  color: rgba(252, 249, 244, 0.95);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, .5);
 }
 .hero-controls {
   position: absolute;
@@ -358,7 +448,7 @@ button {
   position: absolute;
   z-index: 1;
   right: max(32px, calc((100vw - 1280px)/2));
-  top: 135px;
+  top: 50px;
   color: rgba(252,249,244,.72);
   text-transform: uppercase;
   writing-mode: vertical-rl;
@@ -1483,7 +1573,7 @@ button {
     width: calc(100% - 48px);
   }
   .header-inner {
-    min-height: 67px;
+    min-height: 46px;
   }
   .desktop-nav {
     gap: 17px;
@@ -1492,7 +1582,8 @@ button {
     font-size: 9px;
   }
   .hero {
-    min-height: 690px;
+    height: calc(100svh - 66px);
+    min-height: calc(100svh - 66px);
   }
   .hero-content {
     width: calc(100% - 48px);
@@ -1500,7 +1591,9 @@ button {
   }
   .hero h1 {
     max-width: 650px;
-    font-size: clamp(50px, 8vw, 71px);
+    font-size: clamp(42px, 7vw, 64px);
+    line-height: 1.1;
+    letter-spacing: -0.015em;
   }
   .hero-slide-caption {
     right: 24px;
@@ -1513,7 +1606,7 @@ button {
   }
   .hero-scroll {
     right: 24px;
-    top: 118px;
+    top: 40px;
   }
   .atelier-section {
     grid-template-columns: 1fr;
@@ -1587,71 +1680,76 @@ button {
 /* Mobile layout */
 @media (max-width: 620px) {
   html {
-    scroll-padding-top: 68px;
+    scroll-padding-top: 50px;
   }
   .section-shell, .header-inner {
     width: calc(100% - 40px);
   }
   .announcement-bar {
-    min-height: 23px;
-    padding: 5px 12px;
-    font-size: 9px;
+    min-height: 18px;
+    padding: 2px 8px;
+    font-size: 8px;
     letter-spacing: .11em;
   }
   .site-header {
-    top: 23px;
+    top: 0;
     color: var(--espresso);
+    background-color: rgba(252, 249, 244, .96);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
   }
   .header-inner {
     width: 100%;
-    min-height: 58px;
-    padding-inline: 20px;
-    border-bottom-color: rgba(48,37,31,.12);
-    background: rgba(252,249,244,.96);
+    min-height: 44px;
+    padding-inline: 16px;
+    border-bottom: none;
+    background: transparent;
   }
   .brand-lockup {
-    gap: 8px;
+    gap: 7px;
   }
   .brand-mark {
-    width: 29px;
-    height: 29px;
-    font-size: 13px;
+    width: 24px;
+    height: 24px;
+    font-size: 11px;
   }
   .brand-name {
-    font-size: 14px;
+    font-size: 13px;
   }
   .brand-subtitle {
-    font-size: 9px;
+    font-size: 7px;
   }
   .desktop-nav, .header-cta {
     display: none;
   }
   .menu-toggle {
     display: flex;
-    width: 34px;
-    height: 34px;
+    width: 28px;
+    height: 28px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 5px;
+    gap: 4px;
     border: 0;
     background: transparent;
     cursor: pointer;
   }
   .menu-toggle span {
-    width: 18px;
+    width: 16px;
     height: 1px;
     background: var(--espresso);
   }
   .mobile-nav {
     position: absolute;
-    top: 58px;
+    top: 100%;
+    left: 0;
     display: flex;
     flex-direction: column;
     width: 100%;
-    padding: 5px 20px 12px;
+    padding: 6px 20px 16px;
     border-bottom: 1px solid var(--rule);
     background: var(--paper);
+    box-shadow: 0 10px 25px rgba(48,37,31,.08);
   }
   .mobile-nav a {
     display: flex;
@@ -1669,47 +1767,49 @@ button {
     font: 14px var(--sans);
   }
   .hero {
-    min-height: 720px;
-    height: 90svh;
-    max-height: 820px;
+    height: calc(100svh - 62px);
+    min-height: calc(100svh - 62px);
   }
   .hero-image {
-    object-position: center;
+    object-fit: cover;
   }
   .hero-shade {
     background: linear-gradient(0deg, rgba(26,17,11,.82), rgba(26,17,11,.16) 73%, rgba(26,17,11,.08));
   }
   .hero-content {
-    width: calc(100% - 40px);
-    margin-bottom: 146px;
+    width: calc(100% - 36px);
+    margin-bottom: 130px;
   }
   .hero-kicker {
     font-size: 9px;
-    letter-spacing: .13em;
+    letter-spacing: .18em;
   }
   .hero-kicker span {
-    width: 19px;
+    width: 20px;
   }
   .hero h1 {
-    max-width: 390px;
-    margin-top: 14px;
-    font-size: clamp(42px, 12vw, 57px);
-    line-height: 1.04;
+    max-width: 100%;
+    margin-top: 12px;
+    font-size: clamp(34px, 9.5vw, 46px);
+    line-height: 1.12;
+    letter-spacing: -0.01em;
   }
   .hero-intro {
-    max-width: 330px;
-    margin-top: 13px;
-    font-size: 12px;
-    line-height: 1.75;
+    max-width: 360px;
+    margin-top: 12px;
+    font-size: 13px;
+    line-height: 1.65;
   }
   .hero-actions {
     flex-direction: column;
-    gap: 6px;
-    margin-top: 18px;
+    gap: 8px;
+    margin-top: 20px;
   }
   .hero-actions .button {
     width: 100%;
-    min-height: 41px;
+    min-height: 42px;
+    padding: 0 16px;
+    font-size: 9.5px;
     justify-content: space-between;
   }
   .hero-slide-caption {

@@ -15,7 +15,7 @@ export function SiteHeader() {
 
   return (
     <>
-      <div className="announcement-bar">
+      <div className="announcement-bar" id="top">
         Now booking maternity & family sessions · Pune and PCMC
       </div>
       <header className="site-header">
@@ -33,8 +33,8 @@ export function SiteHeader() {
               <Image
                 src="/images/magic-vision-logo.jpg"
                 alt=""
-                width={35}
-                height={35}
+                width={26}
+                height={26}
               />
             </span>
 
