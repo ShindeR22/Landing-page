@@ -24,7 +24,6 @@ The studio specializes in maternity, newborn, first birthday / cake smash, and f
 ## 📖 Overview
 
 Magic Vision Photography is tailored to deliver an intimate, luxury, and stress-free portrait experience for growing families. This web application serves as the digital storefront and conversion engine for the atelier:
-
 - Presenting editorial imagery and portfolio highlights.
 - Providing transparent pricing and package comparisons.
 - Introducing the founders' vision, ethics, and infant-safe handling.
@@ -57,11 +56,11 @@ Magic Vision Photography is tailored to deliver an intimate, luxury, and stress-
 
 5. **Archival Portfolio Gallery (`Portfolio`)**
    - Dynamic category filtering:
-     - _All Work_
-     - _Maternity • Traditional_
-     - _Maternity • Western_
-     - _Maternity • Outdoor_
-     - _Kids & 1st Birthday_
+     - *All Work*
+     - *Maternity • Traditional*
+     - *Maternity • Western*
+     - *Maternity • Outdoor*
+     - *Kids & 1st Birthday*
    - Progressive loading ("View more" button).
    - Fullscreen lightbox modal with zoom preview, metadata captions, and keyboard accessibility (Esc key support).
 
@@ -99,15 +98,15 @@ Magic Vision Photography is tailored to deliver an intimate, luxury, and stress-
 
 ## 🛠 Tech Stack
 
-| Technology               | Purpose                                                                |
-| :----------------------- | :--------------------------------------------------------------------- |
-| **Next.js 16.4**         | Modern React Framework with App Router & Turbopack                     |
-| **React 19**             | Component-based UI library                                             |
-| **TypeScript 5**         | Strict type safety across components and data schemas                  |
-| **Tailwind CSS v4**      | Utility-first CSS framework with `@tailwindcss/turbopack`              |
+| Technology | Purpose |
+| :--- | :--- |
+| **Next.js 16.4** | Modern React Framework with App Router & Turbopack |
+| **React 19** | Component-based UI library |
+| **TypeScript 5** | Strict type safety across components and data schemas |
+| **Tailwind CSS v4** | Utility-first CSS framework with `@tailwindcss/turbopack` |
 | **Custom Design Tokens** | Warm palette (`--paper`, `--beige`, `--espresso`, `--taupe`, `--gold`) |
-| **Google Fonts**         | `Playfair Display` (editorial serif) & `Plus Jakarta Sans` (body font) |
-| **ESLint 9**             | Code quality and Next.js specific lint rules                           |
+| **Google Fonts** | `Playfair Display` (editorial serif) & `Plus Jakarta Sans` (body font) |
+| **ESLint 9** | Code quality and Next.js specific lint rules |
 
 ---
 
@@ -157,16 +156,16 @@ Landing page/
 
 All maternity packages include raw clicks and edited soft copies:
 
-| Package       | Mood / Setting         | Changes   | Price  | Key Inclusions                                                                             |
-| :------------ | :--------------------- | :-------- | :----- | :----------------------------------------------------------------------------------------- |
-| **Package 1** | Studio + Garden        | 2 Outfits | ₹2,999 | 15 edited copies, all raw photos, 1 saree + 1 magic gown, standard props                   |
-| **Package 2** | Studio Only            | 2 Outfits | ₹3,999 | 15 edited copies, all raw photos, 1 saree + 1 magic gown, makeup artist available          |
-| **Package 3** | Studio + Garden        | 3 Outfits | ₹4,999 | 25 edited copies, all raw photos, 1 saree + 2 magic gowns, 30s reel, makeup available      |
-| **Package 4** | Shiv Shahi Wada        | 1 Outfit  | ₹6,999 | 20 edited copies, all raw photos, 1 saree, 1-min reel, makeup available                    |
-| **Package 5** | Wada + Studio + Garden | 3 Outfits | ₹9,999 | 30 edited copies, all raw photos, 1 saree + 1 premium gown + 1 garden gown, 1-min reel     |
-| **Package 6** | Weekday Home Session   | 2 Outfits | ₹5,999 | 20 edited copies, all raw photos, 1 saree + 1 magic gown, 30s reel, makeup artist included |
+| Package | Mood / Setting | Changes | Price | Key Inclusions |
+| :--- | :--- | :--- | :--- | :--- |
+| **Package 1** | Studio + Garden | 2 Outfits | ₹2,999 | 15 edited copies, all raw photos, 1 saree + 1 magic gown, standard props |
+| **Package 2** | Studio Only | 2 Outfits | ₹3,999 | 15 edited copies, all raw photos, 1 saree + 1 magic gown, makeup artist available |
+| **Package 3** | Studio + Garden | 3 Outfits | ₹4,999 | 25 edited copies, all raw photos, 1 saree + 2 magic gowns, 30s reel, makeup available |
+| **Package 4** | Shiv Shahi Wada | 1 Outfit | ₹6,999 | 20 edited copies, all raw photos, 1 saree, 1-min reel, makeup available |
+| **Package 5** | Wada + Studio + Garden | 3 Outfits | ₹9,999 | 30 edited copies, all raw photos, 1 saree + 1 premium gown + 1 garden gown, 1-min reel |
+| **Package 6** | Weekday Home Session | 2 Outfits | ₹5,999 | 20 edited copies, all raw photos, 1 saree + 1 magic gown, 30s reel, makeup artist included |
 
-> _Note: Physical prints (6×8 inch) are available at ₹50 per print. Specific outdoor location or garden entry fees apply separately._
+> *Note: Physical prints (6×8 inch) are available at ₹50 per print. Specific outdoor location or garden entry fees apply separately.*
 
 ---
 
@@ -202,7 +201,6 @@ All maternity packages include raw clicks and edited soft copies:
 ### Installation
 
 1. Clone or navigate to the repository:
-
    ```bash
    cd "Landing page"
    ```
@@ -261,7 +259,6 @@ All textual content, gallery photos, pricing packages, and founder details are d
 ## 📍 Service Locations
 
 Magic Vision Photography serves families across:
-
 - **Pune**: Baner, Aundh, Kothrud, Shivajinagar, Koregaon Park, Viman Nagar, etc.
 - **Pimpri-Chinchwad (PCMC)**: Wakad, Hinjawadi, Ravet, Nigdi, Pimple Saudagar, Moshi, etc.
 - Private studio sessions and on-location shoots (e.g., Shiv Shahi Wada, nature parks, home sessions).
