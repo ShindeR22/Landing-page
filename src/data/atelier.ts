@@ -437,19 +437,19 @@ export const experiencePackages = [
 
 export const studioStandards = [
   {
-    title: "Personalised photoshoot experience",
-    text: "Every mother and baby is unique. We shape the colour palette, lighting, and pace around your comfort.",
+    title: "Your story, your style",
+    text: "Choose the mood and look that feel like you. We’ll shape the session around your ideas and comfort.",
   },
   {
-    title: "Thoughtful posing & female stylist",
-    text: "Arju is there throughout, guiding fabric, modest comfort, and patient infant handling.",
+    title: "Gentle guidance throughout",
+    text: "From simple posing tips to outfit adjustments, we help you feel relaxed and confident in front of the camera.",
   },
   {
-    title: "Beautifully edited photographs",
-    text: "Fine-art colour grading, natural skin tones, gentle warmth, and painterly shadow depth.",
+    title: "Photographs that feel like you",
+    text: "Careful editing keeps the colours true, the light soft, and the little details that make your moment yours.",
   },
   {
-    title: "Memories to treasure forever",
-    text: "Private digital galleries and handcrafted archival albums made for generations.",
+    title: "Made to revisit for years",
+    text: "Take home the images you love in a private digital gallery, with printed keepsakes available to order.",
   },
 ];

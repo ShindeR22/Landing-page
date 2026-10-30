@@ -1,9 +1,18 @@
+import Image from "next/image";
+
 export function SiteFooter() {
   return (
     <footer className="site-footer">
       <div className="section-shell footer-main">
         <div className="footer-brand">
-          <span className="brand-mark">MV</span>
+          <span className="brand-mark" aria-hidden="true">
+            <Image
+              src="/images/magic-vision-logo.jpg"
+              alt=""
+              width={44}
+              height={44}
+            />
+          </span>
           <div>
             <p className="footer-title">Magic Vision Photography</p>
             <p>Small moments, held close.</p>
