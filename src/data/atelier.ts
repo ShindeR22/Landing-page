@@ -282,17 +282,17 @@ export const instagramPhotos = [
 export const founders = [
   {
     name: "Ashpak",
-    role: "Co-founder & Director of Photography",
+    role: "Co-founder & Lead Photographer",
     intro: "Lead photographer",
-    bio: "Master of light, cinematic composition, and fleeting unscripted emotion. Ashpak brings over eight years of craft to create painterly portraits with archival warmth.",
+    bio: "Ashpak has over eight years of experience behind the camera. He loves working with light and capturing natural, honest moments. His portraits feel warm and timeless.",
     image:
       "https://lh3.googleusercontent.com/aida-public/AB6AXuCmU5RoAPe1a6K0q1orFSy844LOp0L67MSWtg6wcdT_lL8lhPflq_agT6MI1_9WBAD6friINrpByjsfigfjMtI1lmUM4USBIPN6NvIdGT--INmrpL9r9f_f--n9jeBXM2TW1aljMZsaTVvHvDqQqZ654YXiPi14HzSxehzCNltIYNWCDrz8Yk6sFFgZx_8iK1fj3rIf-yxR9A52V9Hl9RDfiHRKjIKt7vUm_z-KYXE",
   },
   {
     name: "Arju",
-    role: "Co-founder & Maternity / Newborn Stylist",
+    role: "Co-founder & Maternity and Newborn Stylist",
     intro: "Creative director & stylist",
-    bio: "The gentle soul behind every thoughtful detail: fabric drape, maternal comfort, and patient, baby-safe styling throughout your private session.",
+    bio: "Arju takes care of the little details, from styling outfits to helping mothers feel comfortable. She also makes sure every baby is handled with care during the session.",
     image:
       "https://lh3.googleusercontent.com/aida-public/AB6AXuBuzEBNj3gsmW3P4lXiD6_CdGMPeOF9YENUBAlbGjuyN7LQgBrEdn5NsEE-TXftZS1gDDPrYkKB3Tl3Lw37UHKfDTntwYCOFYrO3cbtvnqRf7w9KWvk6qLx0AAbRKGYP5iRQKIzWNQbLqDGOtrw9R0hUWDMg8EqpODs4KY3TZchdL79WYrPldeLP7bnb3VkdlJ6DemDPe4VH_qY8S6wS6SQKvcOuPA0pSoy5-PBzbQ",
   },

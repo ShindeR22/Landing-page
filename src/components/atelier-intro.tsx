@@ -6,8 +6,9 @@ export function AtelierIntro() {
   return (
     <section className="atelier-section section-shell" id="about">
       <div className="atelier-intro-copy">
-        <SectionHeading eyebrow="The people behind the lens" title="Every picture has a story. We help you tell yours." description="Meet Ashpak and Arju, the creative duo behind Magic Vision Photography. Their boutique studio celebrates motherhood, the wonder of newborn days, and the small milestones that make a family." />
-        <blockquote className="founder-quote">“We believe in gentle storytelling, unhurried pacing, and making mothers feel like royalty.”<cite>— Ashpak & Arju, founders</cite></blockquote>
+        <p className="atelier-kicker"><span>01</span> About us</p>
+        <SectionHeading eyebrow="Meet your photographers" title="We’re here to capture your family’s story." description="We’re Ashpak and Arju, the team behind Magic Vision Photography. We take maternity, newborn, and family portraits in a calm and friendly space. Relax and enjoy the moment. We’ll take care of the photos." />
+        <blockquote className="founder-quote"><span className="quote-mark" aria-hidden="true">“</span><span>We want you to feel at ease and enjoy every moment.</span><cite>— Ashpak & Arju</cite></blockquote>
       </div>
       <div className="founder-grid">
         {founders.map((founder) => (
