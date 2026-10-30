@@ -1,7 +1,15 @@
 import { experiencePackages } from "@/data/atelier";
 import { SectionHeading } from "@/components/section-heading";
-import { PackageCarousel } from "@/components/package-carousel";
 import { PackageDetails } from "@/components/package-details";
+
+const maternityHighlights: Record<string, { setting: string; bestFor: string; difference: string }> = {
+  "Maternity Package 1": { setting: "Studio + Garden", bestFor: "A lower-cost mix of indoor and outdoor portraits", difference: "2 outfit changes · 15 edited photos" },
+  "Maternity Package 2": { setting: "Studio", bestFor: "Studio portraits with makeup artist available", difference: "2 outfit changes · 15 edited photos" },
+  "Maternity Package 3": { setting: "Studio + Garden", bestFor: "More outfit variety and a short reel", difference: "3 outfit changes · 25 edited photos · 30-sec reel" },
+  "Maternity Package 4": { setting: "Shiv Shahi Wada", bestFor: "A heritage location session", difference: "1 outfit change · 20 edited photos · 1-min reel" },
+  "Maternity Package 5": { setting: "Wada + Studio + Garden", bestFor: "All three settings in one session", difference: "3 outfit changes · 30 edited photos · 1-min reel" },
+  "Maternity Package 6": { setting: "Weekday home session", bestFor: "A weekday shoot at home", difference: "2 outfit changes · 20 edited photos · 30-sec reel" },
+};
 
 function PackageCard({
   item,
@@ -10,19 +18,22 @@ function PackageCard({
   item: (typeof experiencePackages)[number];
   index: number;
 }) {
+  const packageNumber = Number(item.name.match(/\d+$/)?.[0] ?? index + 1);
   const whatsappMessage = `Hello Magic Vision Photography, I am interested in your ${item.name} package. Please share the details and availability.`;
   const whatsappUrl = `https://wa.me/917558250015?text=${encodeURIComponent(whatsappMessage)}`;
+  const maternityHighlight = maternityHighlights[item.name];
 
   return (
     <article
-      className={`package-card ${index === 0 ? "package-card-featured" : ""}`}
+      className="package-card"
     >
       <div className="package-card-top">
-        <span className="package-mood">{item.mood}</span>
-        <span className="package-index">0{index + 1}</span>
+        <span className="package-mood">{maternityHighlight?.setting ?? item.mood}</span>
+        <span className="package-index">{String(packageNumber).padStart(2, "0")}</span>
       </div>
       <h3>{item.name}</h3>
-      <p className="package-note">{item.note}</p>
+      <p className="package-note">{maternityHighlight?.bestFor ?? item.note}</p>
+      {maternityHighlight && <p className="package-difference">{maternityHighlight.difference}</p>}
       <div className="package-price">
         <span>
           {item.price === "Enquire for pricing"
@@ -48,7 +59,7 @@ function PackageCard({
             price={item.price}
             note={item.note}
             includes={item.includes}
-            imageSrc={`/images/maternity-package-${index + 1}.webp`}
+            imageSrc={`/images/maternity-package-${packageNumber}.webp`}
           />
         )}
         <a
@@ -76,16 +87,23 @@ export function Packages() {
           <SectionHeading
             eyebrow="Transparent atelier pricing"
             title="Curated photoshoot experiences"
-            description="Thoughtful sessions at our climate-safe studio or a beautiful outdoor location across Pune and PCMC."
+            description="Choose a studio, garden, heritage Wada or weekday home session. Compare the setting, outfit changes, edited photos and reel in each package."
           />
           <a className="text-link" href="#book">
-            Compare packages <span aria-hidden="true">↓</span>
+            Need help choosing? <span aria-hidden="true">↓</span>
           </a>
         </div>
         {packageGroups.map((group) => {
           const items = experiencePackages.filter(
             (item) => item.group === group,
           );
+          if (group === "Maternity Photography") {
+            items.sort((a, b) => {
+              const priceA = Number(a.price.replace(/[^\d]/g, "")) || Infinity;
+              const priceB = Number(b.price.replace(/[^\d]/g, "")) || Infinity;
+              return priceA - priceB;
+            });
+          }
           const cards = items.map((item, index) => (
             <PackageCard key={item.name} item={item} index={index} />
           ));
@@ -93,11 +111,7 @@ export function Packages() {
           return (
             <div className="package-group" key={group}>
               <h3 className="package-group-title">{group}</h3>
-              {group === "Maternity Photography" ? (
-                <PackageCarousel>{cards}</PackageCarousel>
-              ) : (
-                <div className="package-grid">{cards}</div>
-              )}
+              <div className={`package-grid ${group === "Maternity Photography" ? "package-grid-maternity" : ""}`}>{cards}</div>
               {group === "Maternity Photography" && (
                 <div className="package-terms">
                   <p className="eyebrow">Maternity package terms</p>
@@ -120,14 +134,10 @@ export function Packages() {
           );
         })}
         <div className="amenities-panel">
-          <p className="eyebrow">A little extra comfort, included</p>
-          <div className="amenities-grid">
-            <span>Private changing suite & nursery station</span>
-            <span>Sterilised props, swaddles & organic fabrics</span>
-            <span>Warm beverages & light refreshments</span>
-            <span>Preview gallery within 48 hours</span>
-            <span>Handcrafted archival album add-ons</span>
-          </div>
+          <p className="eyebrow">Planning a studio session?</p>
+          <p className="amenities-note">
+            Please ask us to confirm changing space, nursery setup, prop and fabric cleaning, refreshments and preview gallery timing when you enquire. Availability and delivery timing can vary by session.
+          </p>
           <p className="amenities-note">
             Custom location sessions across Hinjawadi, Baner, Wakad, Viman Nagar
             and PCMC are available by request.

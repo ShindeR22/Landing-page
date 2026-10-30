@@ -804,10 +804,17 @@ button {
   font: 500 25px/1.2 var(--serif);
 }
 .package-note {
-  min-height: 29px;
+  min-height: 42px;
   margin: 0;
   color: var(--taupe);
   font: italic 14px var(--serif);
+}
+.package-difference {
+  margin: 9px 0 0;
+  color: var(--espresso);
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.55;
 }
 .package-price {
   display: flex;
@@ -1716,6 +1723,9 @@ button {
   .package-card {
     padding: 18px 15px;
   }
+  .package-grid-maternity {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
   .package-card h3 {
     font-size: 23px;
   }
@@ -1995,6 +2005,9 @@ button {
     grid-template-columns: 1fr;
     gap: 9px;
   }
+  .package-grid-maternity {
+    grid-template-columns: 1fr;
+  }
   .package-grid-horizontal {
     grid-auto-columns: 84%;
     grid-template-columns: none;
@@ -2024,6 +2037,9 @@ button {
   }
   .package-note {
     min-height: 0;
+  }
+  .package-difference {
+    margin-top: 6px;
   }
   .package-price {
     flex-direction: row;
