@@ -38,7 +38,7 @@ body {
   background: var(--paper);
   color: var(--ink);
   font-family: var(--sans);
-  font-size: 16px;
+  font-size: 17px;
   -webkit-font-smoothing: antialiased;
 }
 button, input, select, textarea {
@@ -63,6 +63,19 @@ button {
   width: min(calc(100% - 64px), 1280px);
   margin-inline: auto;
 }
+
+/* Reveal each page section as it enters the viewport. */
+.scroll-reveal {
+  opacity: 0;
+  transform: translate3d(0, 28px, 0);
+  transition: opacity .75s ease, transform .85s cubic-bezier(.2, .7, .2, 1);
+  will-change: opacity, transform;
+}
+.scroll-reveal.scroll-reveal-visible {
+  opacity: 1;
+  transform: none;
+  will-change: auto;
+}
 /* Announcement bar and navigation */
 .announcement-bar {
   position: relative;
@@ -75,7 +88,7 @@ button {
   background: var(--espresso);
   text-align: center;
   text-transform: uppercase;
-  font-size: 8.5px;
+  font-size: 9.5px;
   font-weight: 500;
   letter-spacing: .18em;
 }
@@ -128,9 +141,9 @@ button {
 .brand-subtitle {
   text-transform: uppercase;
   letter-spacing: .2em;
-  font-size: 7.5px;
-  color: var(--taupe);
-  opacity: .9;
+  font-size: 8.5px;
+  color: var(--ink-soft);
+  opacity: 1;
 }
 .desktop-nav {
   display: flex;
@@ -141,10 +154,10 @@ button {
   position: relative;
   text-transform: uppercase;
   letter-spacing: .15em;
-  font-size: 9px;
+  font-size: 10px;
   font-weight: 500;
   color: var(--espresso);
-  opacity: .82;
+  opacity: 1;
   padding: 2px 0;
   transition: opacity .25s ease, color .25s ease;
 }
@@ -175,7 +188,7 @@ button {
   padding: 5px 13px;
   text-transform: uppercase;
   letter-spacing: .13em;
-  font-size: 9px;
+  font-size: 10px;
   font-weight: 600;
   background: transparent;
   transition: background-color .22s ease, color .22s ease, box-shadow .22s ease;
@@ -188,7 +201,7 @@ button {
 .header-cta span {
   color: var(--gold);
   display: inline-block;
-  font-size: 10px;
+  font-size: 11px;
   transition: transform .22s ease;
 }
 .header-cta:hover span {
@@ -241,7 +254,7 @@ button {
   gap: 12px;
   color: var(--gold-glow);
   text-transform: uppercase;
-  font-size: 10.5px;
+  font-size: 11.5px;
   font-weight: 600;
   letter-spacing: .24em;
   text-shadow: 0 1px 8px rgba(0, 0, 0, .5);
@@ -257,7 +270,7 @@ button {
   margin: 18px 0 0;
   font-family: var(--serif);
   font-weight: 500;
-  font-size: clamp(48px, 6.4vw, 88px);
+  font-size: clamp(50px, 6.4vw, 90px);
   line-height: 1.08;
   letter-spacing: -0.015em;
   color: #fffdfa;
@@ -280,7 +293,7 @@ button {
   max-width: 520px;
   margin: 22px 0 0;
   color: rgba(252, 249, 244, .92);
-  font-size: clamp(15px, 1.25vw, 17px);
+  font-size: clamp(16px, 1.25vw, 18px);
   font-weight: 300;
   line-height: 1.8;
   letter-spacing: .01em;
@@ -303,13 +316,13 @@ button {
   border: 1px solid transparent;
   text-transform: uppercase;
   letter-spacing: .14em;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 600;
   transition: color .22s ease, background .22s ease, border-color .22s ease, transform .22s ease, box-shadow .22s ease;
   cursor: pointer;
 }
 .button span {
-  font-size: 16px;
+  font-size: 17px;
   transition: transform .22s ease;
 }
 .button:hover span {
@@ -379,7 +392,7 @@ button {
   display: block;
   color: var(--gold-glow);
   text-transform: uppercase;
-  font-size: 9.5px;
+  font-size: 10.5px;
   font-weight: 600;
   letter-spacing: .18em;
   text-shadow: 0 1px 6px rgba(0, 0, 0, .4);
@@ -418,7 +431,7 @@ button {
   background: var(--gold);
 }
 .hero-count {
-  font-size: 10px;
+  font-size: 11px;
   letter-spacing: .15em;
 }
 .hero-count i {
@@ -452,13 +465,13 @@ button {
   color: rgba(252,249,244,.72);
   text-transform: uppercase;
   writing-mode: vertical-rl;
-  font-size: 9px;
+  font-size: 10px;
   letter-spacing: .17em;
 }
 .hero-scroll span {
   margin-top: 11px;
   color: var(--gold);
-  font-size: 15px;
+  font-size: 16px;
 }
 
 /* Shared editorial typography */
@@ -466,7 +479,7 @@ button {
   margin: 0;
   color: var(--taupe);
   text-transform: uppercase;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 600;
   letter-spacing: .18em;
   line-height: 1.6;
@@ -484,7 +497,7 @@ button {
   max-width: 520px;
   margin: 16px 0 0;
   color: var(--taupe);
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1.9;
 }
 
@@ -538,7 +551,7 @@ button {
   object-position: center 25%;
 }
 .founder-card .eyebrow {
-  font-size: 9px;
+  font-size: 10px;
 }
 .founder-card h3 {
   margin: 5px 0 3px;
@@ -548,14 +561,14 @@ button {
 .founder-role {
   margin: 0;
   color: var(--taupe);
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: .04em;
 }
 .founder-bio {
   max-width: 310px;
   margin: 10px 0 0;
   color: var(--taupe);
-  font-size: 12px;
+  font-size: 13px;
   line-height: 1.8;
 }
 
@@ -583,12 +596,12 @@ button {
   border-bottom: 1px solid var(--gold);
   color: var(--espresso);
   text-transform: uppercase;
-  font-size: 9px;
+  font-size: 10px;
   letter-spacing: .14em;
 }
 .text-link span {
   color: var(--gold);
-  font-size: 15px;
+  font-size: 16px;
 }
 .package-grid {
   display: grid;
@@ -620,12 +633,12 @@ button {
   gap: 9px;
   margin: 0;
   color: var(--taupe);
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: .045em;
 }
 .package-carousel-hint > span:first-child {
   color: var(--gold);
-  font-size: 20px;
+  font-size: 21px;
 }
 .package-carousel-hint-divider {
   color: var(--gold);
@@ -648,7 +661,7 @@ button {
   background: var(--paper-raised);
   color: var(--espresso);
   cursor: pointer;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 600;
   letter-spacing: .11em;
   text-transform: uppercase;
@@ -684,7 +697,7 @@ button {
   margin: 0 0 15px;
   color: var(--espresso);
   font-family: var(--serif);
-  font-size: 25px;
+  font-size: 27px;
   font-weight: 400;
 }
 .package-terms {
@@ -693,7 +706,7 @@ button {
   border: 1px solid var(--rule);
   background: var(--paper-raised);
   color: var(--ink-soft);
-  font-size: 12px;
+  font-size: 13px;
   line-height: 1.75;
 }
 .package-terms .eyebrow {
@@ -723,12 +736,12 @@ button {
 .package-mood {
   color: #80643e;
   text-transform: uppercase;
-  font-size: 9px;
+  font-size: 10px;
   letter-spacing: .16em;
 }
 .package-index {
   color: var(--taupe);
-  font-size: 10px;
+  font-size: 11px;
   letter-spacing: .14em;
 }
 .package-card h3 {
@@ -751,7 +764,7 @@ button {
 .package-price span {
   color: var(--taupe);
   text-transform: uppercase;
-  font-size: 9px;
+  font-size: 10px;
   letter-spacing: .15em;
 }
 .package-price strong {
@@ -772,7 +785,7 @@ button {
   align-items: flex-start;
   gap: 8px;
   color: var(--ink-soft);
-  font-size: 12px;
+  font-size: 13px;
   line-height: 1.6;
 }
 .package-card li span {
@@ -806,7 +819,7 @@ button {
   background: transparent;
   color: var(--espresso);
   cursor: pointer;
-  font-size: 9px;
+  font-size: 10px;
   font-weight: 600;
   letter-spacing: .1em;
   text-transform: uppercase;
@@ -880,7 +893,7 @@ button {
 }
 .package-details-copy li {
   color: var(--ink-soft);
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.65;
 }
 .package-details-copy li::before {
@@ -891,7 +904,7 @@ button {
 .package-details-source {
   margin: 18px 0 0;
   color: var(--taupe);
-  font-size: 11px;
+  font-size: 12px;
   line-height: 1.6;
 }
 .package-details-image img {
@@ -914,7 +927,7 @@ button {
   background: var(--paper-raised);
   color: var(--espresso);
   cursor: pointer;
-  font-size: 24px;
+  font-size: 25px;
 }
 @media (max-width: 760px) {
   .package-details-dialog {
@@ -954,13 +967,13 @@ button {
   align-items: center;
   gap: 8px;
   color: var(--ink-soft);
-  font-size: 12px;
+  font-size: 13px;
   line-height: 1.5;
 }
 .amenities-grid span::before {
   content: "✦";
   color: var(--gold);
-  font-size: 12px;
+  font-size: 13px;
 }
 .amenities-note {
   margin: 18px 0 0;
@@ -979,7 +992,7 @@ button {
   border-bottom: 1px solid var(--rule);
   color: var(--taupe);
   text-transform: uppercase;
-  font-size: 9px;
+  font-size: 10px;
   letter-spacing: .17em;
 }
 .portfolio-heading {
@@ -1013,7 +1026,7 @@ button {
   color: var(--ink-soft);
   background: transparent;
   text-transform: uppercase;
-  font-size: 9px;
+  font-size: 10px;
   letter-spacing: .12em;
   cursor: pointer;
   transition: .2s ease;
@@ -1074,7 +1087,7 @@ button {
   place-items: center;
   color: var(--espresso);
   background: var(--paper);
-  font-size: 19px;
+  font-size: 20px;
   opacity: 0;
   transition: opacity .2s ease;
 }
@@ -1089,7 +1102,7 @@ button {
   padding: 12px 3px 5px;
 }
 .gallery-caption .eyebrow {
-  font-size: 10px;
+  font-size: 11px;
 }
 .gallery-caption h3 {
   margin: 4px 0 0;
@@ -1098,7 +1111,7 @@ button {
 }
 .gallery-caption > span {
   color: var(--taupe);
-  font-size: 10px;
+  font-size: 11px;
 }
 .gallery-modal {
   position: fixed;
@@ -1119,13 +1132,37 @@ button {
   border: 0;
   color: var(--gold);
   background: transparent;
-  font-size: 38px;
+  font-size: 40px;
   cursor: pointer;
+}
+.gallery-modal-viewer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  width: min(100%, 980px);
 }
 .gallery-modal-image {
   position: relative;
+  flex: 1 1 auto;
   width: min(100%, 820px);
   height: min(72vh, 780px);
+}
+.gallery-modal-arrow {
+  flex: 0 0 44px;
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(252,249,244,.35);
+  border-radius: 50%;
+  color: var(--paper);
+  background: rgba(252,249,244,.08);
+  font: 32px/1 var(--sans);
+  cursor: pointer;
+  transition: color .2s ease, background .2s ease;
+}
+.gallery-modal-arrow:hover, .gallery-modal-arrow:focus-visible {
+  color: var(--espresso);
+  background: var(--paper);
 }
 .gallery-modal-image .gallery-image {
   object-fit: contain;
@@ -1143,6 +1180,12 @@ button {
   color: rgba(252,249,244,.62);
   font: 10px var(--sans);
   text-transform: uppercase;
+  letter-spacing: .12em;
+}
+.gallery-modal-count {
+  margin-top: 10px;
+  color: rgba(252,249,244,.62);
+  font: 10px var(--sans);
   letter-spacing: .12em;
 }
 /* Studio standards */
@@ -1189,7 +1232,7 @@ button {
 .value-card p {
   margin: 0;
   color: var(--taupe);
-  font-size: 12px;
+  font-size: 13px;
   line-height: 1.75;
 }
 
@@ -1212,7 +1255,7 @@ button {
 .testimonial-heading > p:last-child {
   max-width: 310px;
   color: var(--taupe);
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.8;
 }
 .testimonial-card {
@@ -1225,13 +1268,13 @@ button {
   justify-content: space-between;
   color: var(--taupe);
   text-transform: uppercase;
-  font-size: 9px;
+  font-size: 10px;
   letter-spacing: .14em;
 }
 .stars {
   color: var(--gold);
   letter-spacing: .22em;
-  font-size: 13px;
+  font-size: 14px;
 }
 .testimonial-card blockquote {
   min-height: 126px;
@@ -1264,7 +1307,7 @@ button {
 .testimonial-author {
   margin: 0 0 3px;
   color: var(--espresso);
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: .1em;
@@ -1282,7 +1325,7 @@ button {
 .testimonial-controls > span {
   margin-right: 7px;
   color: var(--taupe);
-  font-size: 9px;
+  font-size: 10px;
   letter-spacing: .1em;
 }
 .testimonial-controls button {
@@ -1323,7 +1366,7 @@ button {
 .instagram-heading > p:last-child {
   margin: 9px 0 0;
   color: var(--taupe);
-  font-size: 12px;
+  font-size: 13px;
 }
 .instagram-grid {
   width: min(100%, 1070px);
@@ -1351,7 +1394,7 @@ button {
   right: 7px;
   bottom: 7px;
   color: white;
-  font-size: 16px;
+  font-size: 17px;
   text-shadow: 0 1px 4px #000;
   opacity: 0;
 }
@@ -1392,7 +1435,7 @@ button {
 .booking-phone span {
   color: rgba(252,249,244,.64);
   text-transform: uppercase;
-  font-size: 9px;
+  font-size: 10px;
   letter-spacing: .15em;
 }
 .booking-phone a {
@@ -1419,7 +1462,7 @@ button {
 .form-field > span {
   color: rgba(252,249,244,.74);
   text-transform: uppercase;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 600;
   letter-spacing: .14em;
 }
@@ -1433,7 +1476,7 @@ button {
   outline: 0;
   color: var(--paper);
   background: transparent;
-  font-size: 12px;
+  font-size: 13px;
   resize: vertical;
 }
 .form-field select {
@@ -1452,7 +1495,7 @@ button {
 }
 .form-field small {
   color: rgba(252,249,244,.46);
-  font-size: 10px;
+  font-size: 11px;
 }
 .form-submit {
   width: 100%;
@@ -1461,13 +1504,13 @@ button {
 .form-success {
   margin: -6px 0 0;
   color: var(--gold);
-  font-size: 12px;
+  font-size: 13px;
 }
 .form-fineprint {
   margin: -5px 0 0;
   color: rgba(252,249,244,.58);
   text-align: center;
-  font-size: 11px;
+  font-size: 12px;
 }
 .form-fineprint a {
   color: var(--gold);
@@ -1508,12 +1551,12 @@ button {
   max-width: 350px;
   margin: 10px 0;
   color: rgba(252,249,244,.63);
-  font-size: 12px;
+  font-size: 13px;
   line-height: 1.8;
 }
 .footer-appointment {
   color: rgba(252,249,244,.42);
-  font-size: 10px;
+  font-size: 11px;
   text-transform: uppercase;
   letter-spacing: .12em;
 }
@@ -1528,7 +1571,7 @@ button {
 }
 .footer-connect a {
   color: rgba(252,249,244,.72);
-  font-size: 12px;
+  font-size: 13px;
 }
 .footer-connect a:hover {
   color: var(--gold);
@@ -1541,7 +1584,7 @@ button {
   border-top: 1px solid rgba(252,249,244,.16);
   color: rgba(252,249,244,.42);
   text-transform: uppercase;
-  font-size: 10px;
+  font-size: 11px;
   letter-spacing: .1em;
 }
 .footer-bottom a {
@@ -1560,7 +1603,7 @@ button {
     gap: 17px;
   }
   .desktop-nav a, .header-cta {
-    font-size: 9px;
+    font-size: 10px;
   }
   .hero {
     height: calc(100svh - 66px);
@@ -1572,7 +1615,7 @@ button {
   }
   .hero h1 {
     max-width: 650px;
-    font-size: clamp(42px, 7vw, 64px);
+    font-size: clamp(44px, 7vw, 66px);
     line-height: 1.1;
     letter-spacing: -0.015em;
   }
@@ -1611,10 +1654,10 @@ button {
     padding: 18px 15px;
   }
   .package-card h3 {
-    font-size: 22px;
+    font-size: 23px;
   }
   .package-card li {
-    font-size: 11px;
+    font-size: 12px;
   }
   .gallery-grid {
     gap: 28px 12px;
@@ -1635,7 +1678,7 @@ button {
     padding-block: 76px;
   }
   .testimonial-heading h2 {
-    font-size: 36px;
+    font-size: 38px;
   }
   .booking-inner {
     grid-template-columns: 1fr 1.15fr;
@@ -1669,7 +1712,7 @@ button {
   .announcement-bar {
     min-height: 18px;
     padding: 2px 8px;
-    font-size: 8px;
+    font-size: 9px;
     letter-spacing: .11em;
   }
   .site-header {
@@ -1692,13 +1735,13 @@ button {
   .brand-mark {
     width: 24px;
     height: 24px;
-    font-size: 11px;
+    font-size: 12px;
   }
   .brand-name {
-    font-size: 13px;
+    font-size: 14px;
   }
   .brand-subtitle {
-    font-size: 7px;
+    font-size: 8px;
   }
   .desktop-nav, .header-cta {
     display: none;
@@ -1762,7 +1805,7 @@ button {
     margin-bottom: 130px;
   }
   .hero-kicker {
-    font-size: 9px;
+    font-size: 10px;
     letter-spacing: .18em;
   }
   .hero-kicker span {
@@ -1771,14 +1814,14 @@ button {
   .hero h1 {
     max-width: 100%;
     margin-top: 12px;
-    font-size: clamp(34px, 9.5vw, 46px);
+    font-size: clamp(36px, 9.5vw, 48px);
     line-height: 1.12;
     letter-spacing: -0.01em;
   }
   .hero-intro {
     max-width: 360px;
     margin-top: 12px;
-    font-size: 13px;
+    font-size: 14px;
     line-height: 1.65;
   }
   .hero-actions {
@@ -1790,7 +1833,7 @@ button {
     width: 100%;
     min-height: 42px;
     padding: 0 16px;
-    font-size: 9.5px;
+    font-size: 10.5px;
     justify-content: space-between;
   }
   .hero-slide-caption {
@@ -1800,11 +1843,11 @@ button {
     width: min(270px, calc(100% - 40px));
   }
   .hero-slide-caption > span {
-    font-size: 9px;
+    font-size: 10px;
   }
   .hero-slide-caption p {
     margin-top: 5px;
-    font-size: 14px;
+    font-size: 15px;
   }
   .hero-controls {
     left: 20px;
@@ -1819,7 +1862,7 @@ button {
     width: 18px;
   }
   .hero-count {
-    font-size: 9px;
+    font-size: 10px;
   }
   .hero-arrows button {
     width: 28px;
@@ -1829,15 +1872,15 @@ button {
     display: none;
   }
   .editorial-title {
-    font-size: clamp(31px, 8vw, 39px);
+    font-size: clamp(33px, 8vw, 41px);
   }
   .section-heading .eyebrow {
     margin-bottom: 9px;
-    font-size: 9px;
+    font-size: 10px;
   }
   .section-description {
     margin-top: 10px;
-    font-size: 12px;
+    font-size: 13px;
   }
   .atelier-section {
     gap: 27px;
@@ -1846,7 +1889,7 @@ button {
   .founder-quote {
     margin-top: 22px;
     padding: 14px 0 0 13px;
-    font-size: 19px;
+    font-size: 20px;
   }
   .founder-grid {
     gap: 10px;
@@ -1855,21 +1898,21 @@ button {
     margin-bottom: 10px;
   }
   .founder-card .eyebrow {
-    font-size: 9px;
+    font-size: 10px;
     letter-spacing: .13em;
   }
   .founder-card h3 {
     margin-top: 4px;
-    font-size: 24px;
+    font-size: 25px;
   }
   .founder-role {
     min-height: 27px;
-    font-size: 10px;
+    font-size: 11px;
     line-height: 1.5;
   }
   .founder-bio {
     margin-top: 7px;
-    font-size: 11px;
+    font-size: 12px;
     line-height: 1.7;
   }
   .packages-section {
@@ -1914,7 +1957,7 @@ button {
   }
   .package-card h3 {
     margin-top: 13px;
-    font-size: 24px;
+    font-size: 25px;
   }
   .package-note {
     min-height: 0;
@@ -1926,7 +1969,7 @@ button {
     margin-block: 12px;
   }
   .package-price strong {
-    font-size: 28px;
+    font-size: 30px;
   }
   .package-card ul {
     gap: 8px;
@@ -1934,7 +1977,7 @@ button {
     padding-top: 12px;
   }
   .package-card li {
-    font-size: 11px;
+    font-size: 12px;
   }
   .package-cta {
     min-height: 40px;
@@ -1944,31 +1987,31 @@ button {
     padding: 15px;
   }
   .amenities-panel > .eyebrow {
-    font-size: 9px;
+    font-size: 10px;
   }
   .amenities-grid {
     grid-template-columns: 1fr 1fr;
     gap: 10px;
   }
   .amenities-grid span {
-    font-size: 11px;
+    font-size: 12px;
   }
   .amenities-note {
-    font-size: 12px;
+    font-size: 13px;
     line-height: 1.6;
   }
   .portfolio-section {
     padding-block: 58px 68px;
   }
   .portfolio-overline {
-    font-size: 9px;
+    font-size: 10px;
   }
   .portfolio-heading {
     display: block;
     margin-top: 24px;
   }
   .portfolio-heading .editorial-title {
-    font-size: 33px;
+    font-size: 35px;
   }
   .portfolio-heading .section-description {
     max-width: 300px;
@@ -1982,7 +2025,7 @@ button {
   }
   .gallery-filter {
     padding: 8px 9px;
-    font-size: 9px;
+    font-size: 10px;
     letter-spacing: .08em;
   }
   .gallery-grid {
@@ -2004,20 +2047,20 @@ button {
     padding: 8px 1px 3px;
   }
   .gallery-caption .eyebrow {
-    font-size: 9px;
+    font-size: 10px;
     letter-spacing: .11em;
   }
   .gallery-caption h3 {
-    font-size: 16px;
+    font-size: 17px;
   }
   .gallery-caption > span {
-    font-size: 10px;
+    font-size: 11px;
   }
   .gallery-zoom {
     width: 25px;
     height: 25px;
     opacity: 1;
-    font-size: 16px;
+    font-size: 17px;
   }
   .gallery-modal {
     padding-inline: 12px;
@@ -2029,11 +2072,20 @@ button {
   .gallery-modal-image {
     height: 67vh;
   }
+  .gallery-modal-viewer {
+    gap: 6px;
+  }
+  .gallery-modal-arrow {
+    flex-basis: 34px;
+    width: 34px;
+    height: 34px;
+    font-size: 27px;
+  }
   .gallery-modal > p {
-    font-size: 18px;
+    font-size: 19px;
   }
   .gallery-modal > p span {
-    font-size: 9px;
+    font-size: 10px;
   }
   .values-section {
     padding-block: 58px 63px;
@@ -2043,7 +2095,7 @@ button {
   }
   .values-inner .editorial-title {
     max-width: 330px;
-    font-size: 33px;
+    font-size: 35px;
   }
   .values-grid {
     gap: 7px;
@@ -2053,14 +2105,14 @@ button {
     padding: 13px;
   }
   .value-symbol {
-    font-size: 21px;
+    font-size: 22px;
   }
   .value-card h3 {
     margin-bottom: 6px;
-    font-size: 17px;
+    font-size: 18px;
   }
   .value-card p {
-    font-size: 11px;
+    font-size: 12px;
   }
   .testimonial-section {
     gap: 18px;
@@ -2068,10 +2120,10 @@ button {
   }
   .testimonial-heading h2 {
     margin: 8px 0;
-    font-size: 31px;
+    font-size: 33px;
   }
   .testimonial-heading > p:last-child {
-    font-size: 12px;
+    font-size: 13px;
   }
   .testimonial-card {
     padding: 18px 15px;
@@ -2079,29 +2131,29 @@ button {
   .testimonial-card blockquote {
     min-height: 127px;
     margin: 20px 0;
-    font-size: 23px;
+    font-size: 24px;
   }
   .testimonial-top {
-    font-size: 9px;
+    font-size: 10px;
   }
   .stars {
-    font-size: 11px;
+    font-size: 12px;
   }
   .testimonial-bottom {
     align-items: flex-start;
   }
   .testimonial-author {
-    font-size: 10px;
+    font-size: 11px;
   }
   .testimonial-event {
-    font-size: 12px;
+    font-size: 13px;
   }
   .testimonial-controls {
     gap: 4px;
   }
   .testimonial-controls > span {
     margin-right: 2px;
-    font-size: 9px;
+    font-size: 10px;
   }
   .testimonial-controls button {
     width: 25px;
@@ -2114,11 +2166,11 @@ button {
     margin-bottom: 16px;
   }
   .instagram-heading h2 {
-    font-size: 27px;
+    font-size: 29px;
   }
   .instagram-heading > p:last-child {
     max-width: 300px;
-    font-size: 11px;
+    font-size: 12px;
     line-height: 1.6;
   }
   .instagram-grid {
@@ -2128,7 +2180,7 @@ button {
   }
   .instagram-tile span {
     opacity: 1;
-    font-size: 13px;
+    font-size: 14px;
   }
   .instagram-section .button {
     width: 100%;
@@ -2141,17 +2193,17 @@ button {
   }
   .booking-copy .editorial-title {
     max-width: 340px;
-    font-size: 36px;
+    font-size: 38px;
   }
   .booking-copy .section-description {
     max-width: 330px;
-    font-size: 11px;
+    font-size: 12px;
   }
   .booking-phone {
     margin-top: 18px;
   }
   .booking-phone a {
-    font-size: 20px;
+    font-size: 21px;
   }
   .booking-form {
     gap: 14px;
@@ -2162,13 +2214,13 @@ button {
     gap: 13px;
   }
   .form-field input, .form-field select, .form-field textarea {
-    font-size: 12px;
+    font-size: 13px;
   }
   .form-submit {
     min-height: 41px;
   }
   .form-fineprint {
-    font-size: 10px;
+    font-size: 11px;
   }
   .footer-main {
     grid-template-columns: 1fr;
@@ -2180,11 +2232,11 @@ button {
     height: 31px;
   }
   .footer-title {
-    font-size: 17px;
+    font-size: 18px;
   }
   .footer-address p {
     margin-block: 7px;
-    font-size: 11px;
+    font-size: 12px;
   }
   .footer-connect {
     grid-column: auto;
@@ -2195,13 +2247,13 @@ button {
     margin: 0 0 2px;
   }
   .footer-connect a {
-    font-size: 11px;
+    font-size: 12px;
   }
   .footer-bottom {
     flex-wrap: wrap;
     gap: 8px 15px;
     padding-block: 12px 15px;
-    font-size: 10px;
+    font-size: 11px;
   }
 }
 

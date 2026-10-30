@@ -4,6 +4,7 @@ import { Hero } from "@/components/hero";
 import { InstagramGrid } from "@/components/instagram-grid";
 import { Packages } from "@/components/packages";
 import { Portfolio } from "@/components/portfolio";
+import { ScrollReveal } from "@/components/scroll-reveal";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { StudioValues } from "@/components/studio-values";
@@ -13,6 +14,7 @@ export default function Home() {
   return (
     <>
       <SiteHeader />
+      <ScrollReveal />
       <main>
         <Hero />
         <AtelierIntro />
@@ -21,7 +23,7 @@ export default function Home() {
         <Packages />
         <StudioValues />
         <Testimonial />
-        <InstagramGrid />
+        {/* <InstagramGrid /> */}
         <BookingSection />
       </main>
       <SiteFooter />
