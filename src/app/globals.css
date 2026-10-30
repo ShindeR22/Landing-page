@@ -28,6 +28,7 @@
 /* Base styles */
 * {
   box-sizing: border-box;
+  cursor: url("/cursor.svg") 12 12, auto;
 }
 html {
   scroll-behavior: smooth;
@@ -64,17 +65,22 @@ button {
   margin-inline: auto;
 }
 
-/* Reveal each page section as it enters the viewport. */
+/* Keep page content visible if JavaScript or IntersectionObserver is unavailable. */
 .scroll-reveal {
-  opacity: 0;
-  transform: translate3d(0, 28px, 0);
-  transition: opacity .75s ease, transform .85s cubic-bezier(.2, .7, .2, 1);
-  will-change: opacity, transform;
+  opacity: 1;
 }
 .scroll-reveal.scroll-reveal-visible {
-  opacity: 1;
-  transform: none;
-  will-change: auto;
+  animation: scroll-reveal-in .9s cubic-bezier(.2, .7, .2, 1) both;
+}
+@keyframes scroll-reveal-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 44px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
 }
 /* Announcement bar and navigation */
 .announcement-bar {
@@ -319,7 +325,7 @@ button {
   font-size: 11px;
   font-weight: 600;
   transition: color .22s ease, background .22s ease, border-color .22s ease, transform .22s ease, box-shadow .22s ease;
-  cursor: pointer;
+  cursor: url("/cursor.svg") 12 12, pointer;
 }
 .button span {
   font-size: 17px;
@@ -425,7 +431,7 @@ button {
   padding: 0;
   border: 0;
   background: rgba(252,249,244,.44);
-  cursor: pointer;
+  cursor: url("/cursor.svg") 12 12, pointer;
 }
 .hero-dots button[aria-current="true"] {
   background: var(--gold);
@@ -450,7 +456,7 @@ button {
   border: 1px solid rgba(252,249,244,.42);
   color: var(--paper);
   background: transparent;
-  cursor: pointer;
+  cursor: url("/cursor.svg") 12 12, pointer;
 }
 .hero-arrows button:hover {
   color: var(--espresso);
@@ -708,7 +714,7 @@ button {
   border-radius: 3px;
   background: var(--paper-raised);
   color: var(--espresso);
-  cursor: pointer;
+  cursor: url("/cursor.svg") 12 12, pointer;
   font-size: 11px;
   font-weight: 600;
   letter-spacing: .11em;
@@ -866,7 +872,7 @@ button {
   border: 1px solid var(--gold);
   background: transparent;
   color: var(--espresso);
-  cursor: pointer;
+  cursor: url("/cursor.svg") 12 12, pointer;
   font-size: 10px;
   font-weight: 600;
   letter-spacing: .1em;
@@ -974,7 +980,7 @@ button {
   border-radius: 50%;
   background: var(--paper-raised);
   color: var(--espresso);
-  cursor: pointer;
+  cursor: url("/cursor.svg") 12 12, pointer;
   font-size: 25px;
 }
 @media (max-width: 760px) {
@@ -1116,7 +1122,7 @@ button {
   border: 0;
   overflow: hidden;
   background: var(--paper-soft);
-  cursor: zoom-in;
+  cursor: url("/cursor.svg") 12 12, zoom-in;
 }
 .gallery-image {
   object-fit: cover;
@@ -1181,7 +1187,7 @@ button {
   color: var(--gold);
   background: transparent;
   font-size: 40px;
-  cursor: pointer;
+  cursor: url("/cursor.svg") 12 12, pointer;
 }
 .gallery-modal-viewer {
   display: flex;
@@ -1205,7 +1211,7 @@ button {
   color: var(--paper);
   background: rgba(252,249,244,.08);
   font: 32px/1 var(--sans);
-  cursor: pointer;
+  cursor: url("/cursor.svg") 12 12, pointer;
   transition: color .2s ease, background .2s ease;
 }
 .gallery-modal-arrow:hover, .gallery-modal-arrow:focus-visible {
@@ -1381,7 +1387,7 @@ button {
   height: 30px;
   border: 1px solid var(--rule);
   background: transparent;
-  cursor: pointer;
+  cursor: url("/cursor.svg") 12 12, pointer;
 }
 .testimonial-controls button:hover {
   color: var(--paper);
@@ -1813,7 +1819,7 @@ button {
     gap: 4px;
     border: 0;
     background: transparent;
-    cursor: pointer;
+    cursor: url("/cursor.svg") 12 12, pointer;
   }
   .menu-toggle span {
     width: 16px;

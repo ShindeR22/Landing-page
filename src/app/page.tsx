@@ -1,7 +1,6 @@
 import { AtelierIntro } from "@/components/atelier-intro";
 import { BookingSection } from "@/components/booking-section";
 import { Hero } from "@/components/hero";
-import { InstagramGrid } from "@/components/instagram-grid";
 import { Packages } from "@/components/packages";
 import { Portfolio } from "@/components/portfolio";
 import { ScrollReveal } from "@/components/scroll-reveal";
