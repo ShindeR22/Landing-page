@@ -233,6 +233,11 @@ button {
   object-position: center;
   animation: hero-reveal .8s ease both;
 }
+.hero-image-mobile,
+.hero-slide-caption-mobile,
+.hero-controls-mobile {
+  display: none;
+}
 @keyframes hero-reveal {
   from {
     opacity: .55;
@@ -1870,6 +1875,20 @@ button {
   .hero-image {
     object-fit: cover;
   }
+  .hero-image-desktop,
+  .hero-slide-caption-desktop,
+  .hero-controls-desktop {
+    display: none;
+  }
+  .hero-image-mobile {
+    display: block;
+  }
+  .hero-slide-caption-mobile {
+    display: none;
+  }
+  .hero-controls-mobile {
+    display: flex;
+  }
   .hero-shade {
     background: linear-gradient(0deg, rgba(26,17,11,.82), rgba(26,17,11,.16) 73%, rgba(26,17,11,.08));
   }
@@ -2589,6 +2608,10 @@ body {
 .hero-intro {
   max-width: 470px;
 }
+.hero-title-mobile,
+.hero-intro-mobile {
+  display: none;
+}
 
 .hero .button-primary {
   color: #28271f;
@@ -2744,6 +2767,12 @@ body {
     scroll-padding-top: 68px;
   }
 
+  .site-header {
+    background-color: var(--paper);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
   .announcement-bar {
     min-height: 23px;
     font-size: 8px;
@@ -2794,5 +2823,235 @@ body {
 
   .gallery-filter {
     padding-inline: 12px;
+  }
+
+  /* Let the hero grow with its copy so controls and calls to action stay clear. */
+  .hero {
+    height: auto;
+    min-height: max(700px, calc(100svh - 77px));
+    align-items: flex-end;
+  }
+
+  .hero-content {
+    width: calc(100% - 40px);
+    margin: auto auto 152px;
+  }
+
+  .hero h1 {
+    max-width: 12ch;
+    font-size: clamp(36px, 9vw, 46px);
+    line-height: 1.06;
+    overflow-wrap: anywhere;
+  }
+
+  .hero-title-desktop,
+  .hero-intro-desktop {
+    display: none;
+  }
+
+  .hero-title-mobile,
+  .hero-intro-mobile {
+    display: inline;
+  }
+
+  .hero-intro {
+    max-width: 290px;
+    font-size: 13px;
+  }
+
+  .hero-slide-caption {
+    right: 20px;
+    bottom: 76px;
+    left: 20px;
+    width: auto;
+    max-width: 230px;
+  }
+
+  .hero-controls {
+    bottom: 14px;
+  }
+
+  .portfolio-overline {
+    gap: 12px;
+    font-size: 8px;
+    letter-spacing: .1em;
+  }
+
+  .portfolio-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .portfolio-heading .text-link {
+    margin: 0;
+  }
+
+  .gallery-caption h3 {
+    overflow-wrap: anywhere;
+  }
+
+  .gallery-filters {
+    gap: 7px;
+  }
+
+  .gallery-filter {
+    max-width: 100%;
+    white-space: normal;
+    font-size: 9px;
+  }
+
+  /* A swipeable package rail keeps all six maternity options available
+     without turning the mobile page into six full-height cards. */
+  .package-grid-maternity {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 10px;
+    overflow-x: auto;
+    padding: 2px 20px 13px 0;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain;
+    scrollbar-color: var(--gold) var(--beige);
+    scrollbar-width: thin;
+  }
+
+  .package-grid-maternity .package-card {
+    flex: 0 0 84%;
+    width: 84%;
+    scroll-snap-align: start;
+    padding: 15px 14px;
+  }
+
+  .package-group + .package-group {
+    margin-top: 25px;
+  }
+
+  .package-group-title {
+    margin-bottom: 10px;
+    font-size: 23px;
+  }
+
+  .package-terms {
+    padding: 13px;
+    font-size: 12px;
+    line-height: 1.6;
+  }
+
+  .amenities-panel {
+    margin-top: 13px;
+    padding: 13px;
+  }
+
+  .amenities-note {
+    margin-top: 10px;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  .portfolio-section,
+  .atelier-section,
+  .testimonial-section,
+  .values-section {
+    padding-block: 48px;
+  }
+
+  .testimonial-section {
+    gap: 14px;
+  }
+
+  .testimonial-heading > p:last-child {
+    display: none;
+  }
+
+  .testimonial-card blockquote {
+    min-height: 0;
+    margin-block: 15px;
+    font-size: 22px;
+  }
+
+  .booking-inner {
+    gap: 18px;
+    padding-block: 48px;
+  }
+
+  .footer-main {
+    gap: 17px;
+    padding-block: 28px 24px;
+  }
+
+  .gallery-modal {
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .gallery-modal-viewer {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .gallery-modal-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100dvh;
+  }
+
+  .gallery-modal-close {
+    z-index: 3;
+    top: max(12px, env(safe-area-inset-top));
+    right: 14px;
+    display: grid;
+    width: 42px;
+    height: 42px;
+    place-items: center;
+    border-radius: 50%;
+    background: rgba(20, 18, 15, .42);
+    line-height: 1;
+  }
+
+  .gallery-modal-arrow {
+    position: absolute;
+    z-index: 3;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(20, 18, 15, .38);
+  }
+
+  .gallery-modal-previous {
+    left: 12px;
+  }
+
+  .gallery-modal-next {
+    right: 12px;
+  }
+
+  .gallery-modal > p {
+    position: absolute;
+    z-index: 2;
+    right: 16px;
+    bottom: calc(env(safe-area-inset-bottom) + 28px);
+    left: 16px;
+    width: auto;
+    margin: 0;
+    padding: 34px 0 4px;
+    align-items: flex-end;
+    background: linear-gradient(transparent, rgba(0, 0, 0, .64));
+    font-size: 18px;
+  }
+
+  .gallery-modal > p span {
+    max-width: 58%;
+    text-align: right;
+  }
+
+  .gallery-modal-count {
+    position: absolute;
+    z-index: 3;
+    bottom: calc(env(safe-area-inset-bottom) + 10px);
+    left: 50%;
+    margin: 0;
+    transform: translateX(-50%);
   }
 }

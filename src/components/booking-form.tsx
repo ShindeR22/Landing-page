@@ -105,7 +105,7 @@ export function BookingForm() {
         </p>
       ) : null}
       <p className="form-fineprint">
-        Prefer a call? <a href="tel:+917558250015">+91 95951 44144</a>
+        Prefer a call? <a href="tel:+917558250015">+91 75582 50015</a>
       </p>
     </form>
   );

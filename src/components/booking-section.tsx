@@ -13,7 +13,7 @@ export function BookingSection() {
           />
           <div className="booking-phone">
             <span>Direct telephone support</span>
-            <a href="tel:+917558250015">+91 95951 44144</a>
+            <a href="tel:+917558250015">+91 75582 50015</a>
           </div>
         </div>
         <BookingForm />

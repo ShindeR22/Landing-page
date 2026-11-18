@@ -30,7 +30,7 @@ export function SiteFooter() {
         </div>
         <div className="footer-connect">
           <span className="eyebrow">Stay in touch</span>
-          <a href="tel:+917558250015">+91 95951 44144</a>
+          <a href="tel:+917558250015">+91 75582 50015</a>
           <a href="https://wa.me/917558250015" target="_blank" rel="noreferrer">
             WhatsApp chat ↗
           </a>
